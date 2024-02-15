@@ -1,0 +1,2527 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Contracts Microservice",
+    "description": "A simple example ASP.NET Core Web API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/contracts/Checklist/GetChecklistsList": {
+      "get": {
+        "tags": [
+          "Checklist"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Checklist/DeleteChecklist": {
+      "delete": {
+        "tags": [
+          "Checklist"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Checklist/CheckIfUserHasChecklist": {
+      "get": {
+        "tags": [
+          "Checklist"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Checklist/ValidateChecklist": {
+      "post": {
+        "tags": [
+          "Checklist"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Checklist"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Checklist"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Checklist"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Checklist/GetContentType": {
+      "get": {
+        "tags": [
+          "Checklist"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contracts/Checklist/getHealth": {
+      "get": {
+        "tags": [
+          "Checklist"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contracts/Document/UploadDocument": {
+      "post": {
+        "tags": [
+          "Document"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Document/GetDocumentsList": {
+      "get": {
+        "tags": [
+          "Document"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Document/DownloadDocument/DownloadDocument/{userId}/{documentId}": {
+      "get": {
+        "tags": [
+          "Document"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Document/DeleteDocument": {
+      "delete": {
+        "tags": [
+          "Document"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Document/CheckIfUserHasDocument": {
+      "get": {
+        "tags": [
+          "Document"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Document/ValidateDocument": {
+      "post": {
+        "tags": [
+          "Document"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Document/GetContentType": {
+      "get": {
+        "tags": [
+          "Document"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contracts/Document/getHealth": {
+      "get": {
+        "tags": [
+          "Document"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contracts/Note/GetNotesList": {
+      "get": {
+        "tags": [
+          "Note"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Note/DeleteNote": {
+      "delete": {
+        "tags": [
+          "Note"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "noteId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Note/CheckIfUserHasNote": {
+      "get": {
+        "tags": [
+          "Note"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "noteId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Note/ValidateNote": {
+      "post": {
+        "tags": [
+          "Note"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Note"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Note"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Note"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Note/GetContentType": {
+      "get": {
+        "tags": [
+          "Note"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contracts/Note/getHealth": {
+      "get": {
+        "tags": [
+          "Note"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contracts/Offer/UploadOffer": {
+      "post": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Offer"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Offer"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Offer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Offer/GetOffersList": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Offer/DownloadOffer/DownloadOffer/{userId}/{offerId}": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Offer/DeleteOffer": {
+      "delete": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offerId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Offer/CheckIfUserHasOffer": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offerId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Offer/ValidateOffer": {
+      "post": {
+        "tags": [
+          "Offer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Offer"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Offer"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Offer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Offer/GetContentType": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contracts/Offer/getHealth": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contracts/Project/UploadProject": {
+      "post": {
+        "tags": [
+          "Project"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Project"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Project"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Project"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Project/GetProjectsList": {
+      "get": {
+        "tags": [
+          "Project"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Project/DeleteProject": {
+      "delete": {
+        "tags": [
+          "Project"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Project/CheckIfUserHasProject": {
+      "get": {
+        "tags": [
+          "Project"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Project/ValidateProject": {
+      "post": {
+        "tags": [
+          "Project"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Project"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Project"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Project"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contracts/Project/GetContentType": {
+      "get": {
+        "tags": [
+          "Project"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contracts/Project/getHealth": {
+      "get": {
+        "tags": [
+          "Project"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Address": {
+        "type": "object",
+        "properties": {
+          "address_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "neighbourhood": {
+            "type": "string",
+            "nullable": true
+          },
+          "street": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "mapCoordinates": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Agency": {
+        "type": "object",
+        "properties": {
+          "agency_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "website": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone_Number": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "agents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Agent"
+            },
+            "nullable": true
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Agent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "agent_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "agent_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "agent_Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Person": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMail": {
+            "type": "string",
+            "nullable": true
+          },
+          "agent_Details": {
+            "type": "string",
+            "nullable": true
+          },
+          "time_Created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/Contact"
+          },
+          "contracts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contract"
+            },
+            "nullable": true
+          },
+          "agency": {
+            "$ref": "#/components/schemas/Agency"
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Category": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "estate": {
+            "$ref": "#/components/schemas/Estate"
+          },
+          "estate_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Checklist": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "client_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "employee_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "start_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transaction_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "City": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "city_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "country_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Client": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "client_Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Person": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMail": {
+            "type": "string",
+            "nullable": true
+          },
+          "client_Details": {
+            "type": "string",
+            "nullable": true
+          },
+          "time_Created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/Contact"
+          },
+          "contracts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contract"
+            },
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IdentityRole"
+            },
+            "nullable": true
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Comment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment_Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment_Content": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment_Rating": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Posted": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "listing": {
+            "$ref": "#/components/schemas/Listing"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Company": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "company_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "company_Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "employee_Count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Employee"
+            },
+            "nullable": true
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicationUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "employee_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estate_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contact_Time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contact_Details": {
+            "type": "string",
+            "nullable": true
+          },
+          "client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "client_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicationUser_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Contract": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "employee_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "contract_Type_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contract_Details": {
+            "type": "string",
+            "nullable": true
+          },
+          "payment_Frequency_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Invoices": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "payment_Amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "fee_Percentage": {
+            "type": "number",
+            "format": "double"
+          },
+          "fee_Amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "date_Signed": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "start_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transaction_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Country": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "country_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "cities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/City"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentModel": {
+        "required": [
+          "contentType",
+          "fileName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fileName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "contentType": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fileContent": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Employee": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employee_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "company": {
+            "$ref": "#/components/schemas/Company"
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Estate": {
+        "required": [
+          "estate_Name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Name": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "city_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "$ref": "#/components/schemas/City"
+          },
+          "estate_Type_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "floor_Space_Square_Meters": {
+            "type": "number",
+            "format": "double"
+          },
+          "number_Of_Balconies": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "balconies_Space": {
+            "type": "number",
+            "format": "double"
+          },
+          "number_Of_Bedrooms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Bathrooms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Garages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Parking_Spaces": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pets_Allowed": {
+            "type": "boolean"
+          },
+          "estate_Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Status_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_ImageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Year_Built": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estate_Year_Listed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "build_Material": {
+            "type": "string",
+            "nullable": true
+          },
+          "is_On_Floor": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "bulding_Floors": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "listing": {
+            "$ref": "#/components/schemas/Listing"
+          },
+          "listing_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Type": {
+            "$ref": "#/components/schemas/Estate_Type"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Estate_Type": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "type_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityRole": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedName": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Listing": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate": {
+            "$ref": "#/components/schemas/Estate"
+          },
+          "estate_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pricePerSquareMeter": {
+            "type": "number",
+            "format": "double"
+          },
+          "is_From_An_Agency": {
+            "type": "boolean"
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            },
+            "nullable": true
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "dateBuilt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateListed": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estate_Type": {
+            "$ref": "#/components/schemas/Estate_Type"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "$ref": "#/components/schemas/Category"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "listingStats": {
+            "$ref": "#/components/schemas/ListingStats"
+          },
+          "employeeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/Employee"
+          },
+          "agent_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "agent": {
+            "$ref": "#/components/schemas/Agent"
+          },
+          "priceHistory": {
+            "$ref": "#/components/schemas/PriceHistory"
+          },
+          "priceHistories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PriceHistory"
+            },
+            "nullable": true
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Review"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListingStats": {
+        "type": "object",
+        "properties": {
+          "listingStats_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesViewed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesSaved": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesCommented": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesReviewed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesRented": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesReported": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priceHistory": {
+            "$ref": "#/components/schemas/PriceHistory"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Note": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "text_Content": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "isCompleted": {
+            "type": "boolean"
+          },
+          "client_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "employee_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "start_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transaction_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Offer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "text_Content": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "isCompleted": {
+            "type": "boolean"
+          },
+          "client_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "employee_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "start_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transaction_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PriceHistory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "priceHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "rentHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "offersHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "searchesHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "viewsHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "listing": {
+            "$ref": "#/components/schemas/Listing"
+          },
+          "listing_Id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Project": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "text_Content": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "isCompleted": {
+            "type": "boolean"
+          },
+          "client_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "employee_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "start_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transaction_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "review_Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "review_Content": {
+            "type": "string",
+            "nullable": true
+          },
+          "review_Rating": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Posted": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "listing_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "listing": {
+            "$ref": "#/components/schemas/Listing"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

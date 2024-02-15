@@ -1,0 +1,4085 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Listings Microservice",
+    "description": "A simple example ASP.NET Core Web API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/listings/Client/GetAllClients": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Client"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Client"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Client"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Client/GetClientById/{clientId}": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Client/AddClient": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Client/UpdateClient/{clientId}": {
+      "put": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Client/DeleteClient/{clientId}": {
+      "delete": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/create": {
+      "post": {
+        "tags": [
+          "Estate"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Estate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Estate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/getall": {
+      "get": {
+        "tags": [
+          "Estate"
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EstateDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/getbyid/{id}": {
+      "get": {
+        "tags": [
+          "Estate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EstateDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/update/{id}": {
+      "put": {
+        "tags": [
+          "Estate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EstateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/delete/{id}": {
+      "delete": {
+        "tags": [
+          "Estate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/harddelete/{id}": {
+      "delete": {
+        "tags": [
+          "Estate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/exists/{id}": {
+      "get": {
+        "tags": [
+          "Estate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/search/{searchTerm}": {
+      "get": {
+        "tags": [
+          "Estate"
+        ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EstateDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/search": {
+      "post": {
+        "tags": [
+          "Estate"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchCriteriaObject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EstateDTOPagedResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/estate/health": {
+      "get": {
+        "tags": [
+          "Estate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Favorite/AddEstateToClient/AddEstateToClient/{clientId}": {
+      "post": {
+        "tags": [
+          "Favorite"
+        ],
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Estate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Favorite/AddExistingEstateToClient/AddExistingEstateToClient/{estateId}/{clientId}": {
+      "post": {
+        "tags": [
+          "Favorite"
+        ],
+        "parameters": [
+          {
+            "name": "estateId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Favorite/RemoveEstateFromClient/RemoveEstateFromClient/{estateId}/{clientId}": {
+      "delete": {
+        "tags": [
+          "Favorite"
+        ],
+        "parameters": [
+          {
+            "name": "estateId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Favorite/ClientHasEstate/ClientHasEstate/{estateId}/{clientId}": {
+      "get": {
+        "tags": [
+          "Favorite"
+        ],
+        "parameters": [
+          {
+            "name": "estateId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Favorite/AddListingToClient/AddListingToClient/{clientId}": {
+      "post": {
+        "tags": [
+          "Favorite"
+        ],
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Listing"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Favorite/RemoveListingFromClient/listing/{clientId}/{listingId}": {
+      "delete": {
+        "tags": [
+          "Favorite"
+        ],
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "listingId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Favorite/ClientHasListing/ClientHasListing/{clientId}/{listingId}": {
+      "get": {
+        "tags": [
+          "Favorite"
+        ],
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "listingId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Keycloak/CreateUserInRealm": {
+      "post": {
+        "tags": [
+          "Keycloak"
+        ],
+        "parameters": [
+          {
+            "name": "realm",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Keycloak/CreateResourceInRealm": {
+      "post": {
+        "tags": [
+          "Keycloak"
+        ],
+        "parameters": [
+          {
+            "name": "realm",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Resource"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Resource"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Resource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Keycloak/GetAllUsersForRealm": {
+      "get": {
+        "tags": [
+          "Keycloak"
+        ],
+        "parameters": [
+          {
+            "name": "realm",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Keycloak/GetUserForRealm": {
+      "get": {
+        "tags": [
+          "Keycloak"
+        ],
+        "parameters": [
+          {
+            "name": "realm",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Keycloak/GetRealm": {
+      "get": {
+        "tags": [
+          "Keycloak"
+        ],
+        "parameters": [
+          {
+            "name": "realm",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Keycloak/GetResource": {
+      "get": {
+        "tags": [
+          "Keycloak"
+        ],
+        "parameters": [
+          {
+            "name": "realm",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resourceId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Keycloak/SearchResourcesByName": {
+      "get": {
+        "tags": [
+          "Keycloak"
+        ],
+        "parameters": [
+          {
+            "name": "realm",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Keycloak/UpdateUser": {
+      "put": {
+        "tags": [
+          "Keycloak"
+        ],
+        "parameters": [
+          {
+            "name": "realm",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Keycloak/getHealth": {
+      "get": {
+        "tags": [
+          "Keycloak"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Listing/Create": {
+      "post": {
+        "tags": [
+          "Listing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Listing"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/listings/Listing/GetAll": {
+      "get": {
+        "tags": [
+          "Listing"
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Listing/GetById/GetById/{id}": {
+      "get": {
+        "tags": [
+          "Listing"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Listing/Update/UpdateListing/{id}": {
+      "put": {
+        "tags": [
+          "Listing"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListingDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Listing/Delete/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Listing"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Listing/HardDelete/HardDelete/{id}": {
+      "delete": {
+        "tags": [
+          "Listing"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Listing/ListingExists/ListingExists/{id}": {
+      "delete": {
+        "tags": [
+          "Listing"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/Listing/getHealth": {
+      "get": {
+        "tags": [
+          "Listing"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/ListingsQuery/Search/search/{searchTerm}": {
+      "get": {
+        "tags": [
+          "ListingsQuery"
+        ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListingDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/ListingsQuery/Search/search": {
+      "post": {
+        "tags": [
+          "ListingsQuery"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchCriteriaObject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListingDTOPagedResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/MediatRSearch/Search": {
+      "get": {
+        "tags": [
+          "MediatRSearch"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/MediatRSearch/Client": {
+      "get": {
+        "tags": [
+          "MediatRSearch"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/MediatRSearch/Estate": {
+      "get": {
+        "tags": [
+          "MediatRSearch"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/MediatRSearch/Listing": {
+      "get": {
+        "tags": [
+          "MediatRSearch"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/MediatRSearch/ByParameters": {
+      "get": {
+        "tags": [
+          "MediatRSearch"
+        ],
+        "parameters": [
+          {
+            "name": "city",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "minPrice",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "maxPrice",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/User/GetCurrentlyLoggedInUser": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/User/GetUserById/{userId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/User/GetCurrentAttributes": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeListDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/User/GetAttributesNyId/{userId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeListDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings/User/getHealth": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActionResult": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Address": {
+        "type": "object",
+        "properties": {
+          "address_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "neighbourhood": {
+            "type": "string",
+            "nullable": true
+          },
+          "street": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "mapCoordinates": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Agency": {
+        "type": "object",
+        "properties": {
+          "agency_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "website": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone_Number": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "agents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Agent"
+            },
+            "nullable": true
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Agent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "agent_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "agent_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "agent_Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Person": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMail": {
+            "type": "string",
+            "nullable": true
+          },
+          "agent_Details": {
+            "type": "string",
+            "nullable": true
+          },
+          "time_Created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/Contact"
+          },
+          "contracts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contract"
+            },
+            "nullable": true
+          },
+          "agency": {
+            "$ref": "#/components/schemas/Agency"
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeListDto": {
+        "type": "object",
+        "properties": {
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Category": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "estate": {
+            "$ref": "#/components/schemas/Estate"
+          },
+          "estate_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "City": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "city_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "country_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Client": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "client_Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_Person": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMail": {
+            "type": "string",
+            "nullable": true
+          },
+          "client_Details": {
+            "type": "string",
+            "nullable": true
+          },
+          "time_Created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/Contact"
+          },
+          "contracts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contract"
+            },
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IdentityRole"
+            },
+            "nullable": true
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Comment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment_Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment_Content": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment_Rating": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Posted": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "listing": {
+            "$ref": "#/components/schemas/Listing"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Company": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "company_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "company_Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "employee_Count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Employee"
+            },
+            "nullable": true
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicationUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "employee_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estate_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contact_Time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contact_Details": {
+            "type": "string",
+            "nullable": true
+          },
+          "client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "client_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicationUser_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Contract": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "employee_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "contract_Type_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contract_Details": {
+            "type": "string",
+            "nullable": true
+          },
+          "payment_Frequency_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Invoices": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "payment_Amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "fee_Percentage": {
+            "type": "number",
+            "format": "double"
+          },
+          "fee_Amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "date_Signed": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "start_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transaction_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Country": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "country_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "cities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/City"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Credential": {
+        "type": "object",
+        "properties": {
+          "createdDate": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "credentialData": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "secretData": {
+            "type": "string",
+            "nullable": true
+          },
+          "temporary": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "userLabel": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Employee": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employee_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "company": {
+            "$ref": "#/components/schemas/Company"
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Listing"
+            },
+            "nullable": true
+          },
+          "estates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estate"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Estate": {
+        "required": [
+          "estate_Name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Name": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "city_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "$ref": "#/components/schemas/City"
+          },
+          "estate_Type_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "floor_Space_Square_Meters": {
+            "type": "number",
+            "format": "double"
+          },
+          "number_Of_Balconies": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "balconies_Space": {
+            "type": "number",
+            "format": "double"
+          },
+          "number_Of_Bedrooms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Bathrooms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Garages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Parking_Spaces": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pets_Allowed": {
+            "type": "boolean"
+          },
+          "estate_Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Status_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_ImageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Year_Built": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estate_Year_Listed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "build_Material": {
+            "type": "string",
+            "nullable": true
+          },
+          "is_On_Floor": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "bulding_Floors": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "listing": {
+            "$ref": "#/components/schemas/Listing"
+          },
+          "listing_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Type": {
+            "$ref": "#/components/schemas/Estate_Type"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EstateDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "city_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "$ref": "#/components/schemas/City"
+          },
+          "estate_Type_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "floor_Space": {
+            "type": "number",
+            "format": "double"
+          },
+          "number_Of_Balconies": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "balconies_Space": {
+            "type": "number",
+            "format": "double"
+          },
+          "number_Of_Bedrooms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Bathrooms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Garages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number_Of_Parking_Spaces": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pets_Allowed": {
+            "type": "boolean"
+          },
+          "estate_Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Status_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_ImageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate_Year_Built": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estate_Year_Listed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listing": {
+            "$ref": "#/components/schemas/Listing"
+          },
+          "estate_Type": {
+            "$ref": "#/components/schemas/Estate_Type"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EstateDTOPagedResult": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EstateDTO"
+            },
+            "nullable": true
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Estate_Type": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "type_Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FederatedIdentity": {
+        "type": "object",
+        "properties": {
+          "identityProvider": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityRole": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedName": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Listing": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "estate": {
+            "$ref": "#/components/schemas/Estate"
+          },
+          "estate_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pricePerSquareMeter": {
+            "type": "number",
+            "format": "double"
+          },
+          "is_From_An_Agency": {
+            "type": "boolean"
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            },
+            "nullable": true
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "dateBuilt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateListed": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estate_Type": {
+            "$ref": "#/components/schemas/Estate_Type"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "$ref": "#/components/schemas/Category"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "listingStats": {
+            "$ref": "#/components/schemas/ListingStats"
+          },
+          "employeeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/Employee"
+          },
+          "agent_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "agent": {
+            "$ref": "#/components/schemas/Agent"
+          },
+          "priceHistory": {
+            "$ref": "#/components/schemas/PriceHistory"
+          },
+          "priceHistories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PriceHistory"
+            },
+            "nullable": true
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Review"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListingDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isPublic": {
+            "type": "boolean"
+          },
+          "dateBuilt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateListed": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "squareMeters": {
+            "type": "number",
+            "format": "double"
+          },
+          "estate_Type": {
+            "$ref": "#/components/schemas/Estate_Type"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "$ref": "#/components/schemas/Category"
+          },
+          "employeeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/Employee"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListingDTOPagedResult": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListingDTO"
+            },
+            "nullable": true
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListingStats": {
+        "type": "object",
+        "properties": {
+          "listingStats_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesViewed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesSaved": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesCommented": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesReviewed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesRented": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timesReported": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priceHistory": {
+            "$ref": "#/components/schemas/PriceHistory"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PriceHistory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "priceHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "rentHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "offersHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "searchesHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "viewsHistoryTouples": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "listing": {
+            "$ref": "#/components/schemas/Listing"
+          },
+          "listing_Id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": {}
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "resource_scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "review_Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "review_Content": {
+            "type": "string",
+            "nullable": true
+          },
+          "review_Rating": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Posted": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "listing_Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "listing": {
+            "$ref": "#/components/schemas/Listing"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchCriteriaObject": {
+        "type": "object",
+        "properties": {
+          "searchTerm": {
+            "type": "string",
+            "nullable": true
+          },
+          "filterByColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortByColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortDescending": {
+            "type": "boolean"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "access": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "clientConsents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserConsent"
+            },
+            "nullable": true
+          },
+          "clientRoles": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "createdTimestamp": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "credentials": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Credential"
+            },
+            "nullable": true
+          },
+          "disableableCredentialTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailVerified": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "enabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "federatedIdentities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FederatedIdentity"
+            },
+            "nullable": true
+          },
+          "federationLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "notBefore": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "origin": {
+            "type": "string",
+            "nullable": true
+          },
+          "realmRoles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "requiredActions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "self": {
+            "type": "string",
+            "nullable": true
+          },
+          "serviceAccountClientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "totp": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserConsent": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdDate": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "lastUpdatedDate": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "grantedClientScopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
