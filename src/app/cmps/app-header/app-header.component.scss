@@ -1,0 +1,132 @@
+@import '../../../assets/styles/setup/variables';
+@import '../../../assets/styles/setup/mixins';
+@import '../../../assets/styles/setup/function';
+
+header {
+    min-height: 80px;
+    padding: 12px 0;
+    color: $header-text-color;
+    border-bottom: 1px solid $border-color;
+    color: $header-text-color;
+    z-index: 7;
+
+    @include for-mobile-layout {
+      display: block;
+      width: 100%;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &.filter-active {
+            align-items: start;
+            height: 160px;
+        }
+
+        .logo {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: $secondary-color;
+            height: 42px;
+            display: none;
+            img {
+                width: 46px;
+            }
+
+            @include for-narrow-layout{
+                display: flex;
+            }
+        }
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: rem(14px);
+        font-weight: 600;
+        height: 42px;
+        gap: 4px;
+        display: none;
+
+        >* {
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 22px;
+            @include center-flex();
+
+            &:hover:not(.menu) {
+                background-color: $main-hover;
+            }
+        }
+
+
+        .language {
+            font-size: 20px;
+        }
+
+        .home-nav {
+            display: none;
+        }
+
+        .menu {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 85px;
+            border: 1px solid $border-color;
+            transition: box-shadow .4s;
+
+            .notification {
+                position: absolute;
+                @include center-flex();
+                top: -10px;
+                width: 20px;
+                height: 20px;
+                background-color: $secondary-color;
+                color: white;
+                right: -10px;
+                border-radius: 50%;
+            }
+
+            img {
+                position: absolute;
+                border-radius: 2em;
+                width: 29px;
+                height: 29px;
+                right: 5px;
+            }
+            
+            svg{
+                position: absolute;
+            }
+
+            &:hover {
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+            }
+        }
+        @include for-narrow-layout {
+            display: flex;
+        }
+
+        @include for-normal-layout {
+            .home-nav {
+                display: block;
+            }
+        }
+    }
+
+    @media print {
+        & {
+            display: none;
+        }
+    }
+}
+
+::ng-deep .header-menu-modal {
+    position: absolute !important;
+}
