@@ -1,0 +1,34 @@
+@import '../../../../assets/styles/setup/mixins';
+@import '../../../../assets/styles/setup/variables';
+
+.amenities-list {
+  padding: 32px 0;
+  border-bottom: 1px solid $border-color;
+  ul {
+    max-height: 500px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 16px;
+    list-style: none;
+    
+    @include for-narrow-layout {
+      max-height: 300px;
+    }
+
+    li {
+      width: 50%;
+    }
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 500;
+    padding-bottom: 24px;
+  }
+
+  @include for-mobile-layout {
+    margin: 0 5px;
+  }
+}
