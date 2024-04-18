@@ -1,0 +1,73 @@
+<section class="stay-order">
+    <div class="order-content">
+        <div class="stay-order-header">
+            <h2 class="total">{{stay.price |currency}} USD<span> total</span></h2>
+            <div class="reviews">
+                <div class="rating">
+                    <fa-icon class="star" [icon]="faStar"></fa-icon>
+                    <span>{{RateAvg}}</span>
+                </div>
+                <span class="sum-of-reviews">{{stay.reviews.length}} {{'stay.details.reviews' | translate}}</span>
+            </div>
+        </div>
+        <div class="checkout-container">
+            <div class="checkout-btns">
+                <label for="calender" class="check-in">
+                    <span class="title">{{'stay.header.check-out' | translate}}</span>
+                    <span>{{getCheckIn() | date}}</span>
+                </label>
+                <input id="calender" type="text" [(ngModel)]="date" name="date" airbnb-calendar [options]="options" />
+                <label for="calender" class="check-out">
+                    <span class="title">{{'stay.header.check-in' | translate}}</span>
+                    <span>{{getCheckOut() | date}}</span>
+                </label>
+            </div>
+            <div class="guest-btn" (click)="showGuestModal=!showGuestModal">
+                <button>
+                    <span class="title">{{'stay.header.guests' | translate}}</span>
+                    <span>{{getGuests()}}</span>
+                </button>
+                <fa-icon *ngIf="!showGuestModal" [icon]="faChevronDown"></fa-icon>
+                <fa-icon *ngIf="showGuestModal" [icon]="faChevronUp"></fa-icon>
+            </div>
+            <guest-modal (toggleGuestModal)="toggleGuestModal()" [order]="order" [stay]="stay"
+                *ngIf="showGuestModal"></guest-modal>
+        </div>
+        <button class="order-btn" (click)="onAddOrder()">{{'stay.order.reserve' | translate}}</button>
+        <div class="order-description">
+            <span>{{'stay.order.description-one' | translate}}</span>
+            <p>{{'stay.order.description-two' | translate}}</p>
+        </div>
+        <div class="price-container">
+            <div class="price-line">
+                <span class="price-item">${{stay.price}} X {{GetTotalDays}} {{'stay.order.nights' | translate}}</span>
+                <span>${{Price}} </span>
+            </div>
+            <div class="price-line">
+                <span class="price-item">{{'stay.order.cleaning-fee' | translate}}</span>
+                <span>${{CleanTax}} USD</span>
+            </div>
+            <div class="price-line">
+                <span class="price-item">{{'stay.order.service-fee' | translate}}</span>
+                <span>${{ServiceFee}} USD</span>
+            </div>
+        </div>
+        <div class="total-price">
+            <span>{{'stay.order.total' | translate}}</span>
+            <span>${{TotalPrice | number:'1.2'}} USD</span>
+        </div>
+    </div>
+    <div class="order-type">
+        <p><span>This is a rare find.</span>Mega's place on Airbnb is usually fully booked.</p>
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
+            focusable="false"
+            style="display: block; height: 32px; width: 32px; fill: rgb(227, 28, 95); stroke: currentcolor;">
+            <g stroke="none">
+                <path d="m32.62 6 9.526 11.114-18.146 23.921-18.147-23.921 9.526-11.114z" fill-opacity=".2"></path>
+                <path
+                    d="m34.4599349 2 12.8243129 14.9616983-23.2842478 30.6928721-23.28424779-30.6928721 12.82431289-14.9616983zm-17.9171827 16h-12.52799999l18.25899999 24.069zm27.441 0h-12.528l-5.73 24.069zm-14.583 0h-10.802l5.4012478 22.684zm-15.92-12.86-9.30799999 10.86h11.89399999zm19.253-1.141h-17.468l2.857 12.001h11.754zm1.784 1.141-2.586 10.86h11.894z">
+                </path>
+            </g>
+        </svg>
+    </div>
+</section>
