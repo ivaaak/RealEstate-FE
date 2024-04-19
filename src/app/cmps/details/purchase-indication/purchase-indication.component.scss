@@ -1,0 +1,116 @@
+@import '../../../../assets/styles/setup/variables';
+@import '../../../../assets/styles/setup/mixins';
+
+.purchase-indication {
+  @include center-absolute();
+  position: fixed;
+  z-index: 2;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  color: $header-text-color;
+  min-width: 600px;
+  background-color: #ffffff;
+  h2 {
+    margin-bottom: 12px;
+  }
+  p {
+    color: $main-color;
+  }
+
+  .title-after-confirm {
+    h2{
+      padding-bottom: 12px;
+      border-bottom: 1px solid $border-color;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 200px;
+    }
+
+    .price-details {
+      padding: 10px 0;
+      border-bottom: 1px solid $border-color;
+      border-top: 1px solid $border-color;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .price-night {
+        div {
+          display: flex;
+          gap: 4px;
+        }
+      }
+    }
+
+    .price-total, .service, .price-night  {
+      @include center-flex();
+      justify-content: space-between;
+    }
+
+    .dates {
+      div {
+        display: flex;
+        gap: 4px;
+        margin-top: 4px;
+      }
+    }
+
+    .guest-list {
+      margin-top: 4px;
+    }
+
+    .img-container {
+      padding: 24px;
+      box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+      background-color: white;
+      border-radius: 12px;
+      font-weight: 500;
+      max-width: 250px;
+      text-overflow: ellipsis;
+      img {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 8px
+      }
+    }
+  }
+
+  .btn-container {
+    @include center-flex();
+    gap: 24px;
+    margin-top: 24px;
+
+    button {
+      width: 150px;
+      color: white;
+      height: 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      background-color: $main-color;
+      font-weight: 300;
+    }
+
+    .confirm {
+      background-color: $secondary-color;
+      font-weight: 600;
+    }
+  }
+}
