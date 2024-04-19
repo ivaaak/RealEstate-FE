@@ -1,0 +1,135 @@
+@import '../../../assets/styles/setup/variables';
+@import '../../../assets/styles/setup/mixins';
+
+.home-header {
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    height: 80px;
+    color: white;
+    background-color: #ffffff80;
+    font-size: 20px;
+    transition: background-color .3s, color .3s;
+    z-index: 100;
+
+    @include for-mobile-layout() {
+        height: 65px;
+    }
+
+    &.scrolled {
+        background-color: white;
+        color: $black;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .logo {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        color: $secondary-color;
+        height: 42px;
+
+        img {
+            width: 35px;
+        }
+    }
+
+    .about-us {
+        @include center-flex();
+        gap: 4px;
+        cursor: pointer;
+        padding: 10px 16px;
+        border-radius: 12px;
+        white-space: nowrap;
+        transition: transform .2s;
+        font-size: 14px;
+
+        &:hover {
+            background-color: #e9e1e148;
+        }
+
+        h5 {
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        @include for-tablet-layout {
+            h5 {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        .title {
+            font-weight: 600;
+        }
+
+        .explore {
+            @include center-flex();
+            border: none;
+            padding: 10px 16px;
+            font-size: 18px;
+            font-weight: 600;
+            gap: 6px;
+            display: none;
+            border-radius: 12px;
+            cursor: pointer;
+
+            svg {
+                font-size: 22px;
+            }
+
+            transition: transform .2s;
+
+            &:hover {
+                background-color: #e9e1e148;
+            }
+        }
+
+        @include for-narrow-layout() {
+            .explore {
+                display: block;
+            }
+        }
+    }
+
+    .menu {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 5px 5px 12px;
+        width: 76px;
+        background-color: white;
+        border-radius: 12px;
+        border: 1px solid lightgray;
+        transition: box-shadow .4s;
+        color: $black;
+        cursor: pointer;
+
+        img {
+            border-radius: 2em;
+            width: 29px;
+            height: 29px;
+        }
+
+        &:hover {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+        }
+    }
+}
+
+::ng-deep .header-menu-modal {
+    position: fixed !important;
+}

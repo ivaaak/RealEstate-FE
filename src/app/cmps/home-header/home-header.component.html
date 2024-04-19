@@ -1,0 +1,23 @@
+<section [ngClass]="isTopZero ? 'scrolled' : ''" class="home-header main-layout full">
+    <div class="content">
+        <div class="logo" routerLink="/">
+            <img src="https://res.cloudinary.com/du63kkxhl/image/upload/v1681629704/logo_smny53.png" alt="">
+            <h3>airbnb</h3>
+        </div>
+        <div class="nav-container">
+            <div class="about-us" routerLink="/about">
+                <span class="icon material-symbols-outlined">info</span>
+                <h5>About Us</h5>
+            </div>
+            <div class="explore" routerLink="/">
+            <span>Explore</span>
+        </div>
+        <div class="menu" (click)="onToggleHeaderMenuModal()">
+            <fa-icon [icon]="faBars"></fa-icon>
+            <img [src]="getUserImg()" alt="">
+        </div>
+    </div>
+</div>
+</section>
+<header-menu-modal (onToggleHeaderMenuModal)="onToggleHeaderMenuModal()"
+    *ngIf="isShowHeaderMenuModal" [isOpenFooter]="false"></header-menu-modal>
