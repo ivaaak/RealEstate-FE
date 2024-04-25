@@ -1,0 +1,10 @@
+<ul class="search-place-modal">
+  <li *ngFor="let place of places" (click)="setFilter(place)">
+    <div class="icon-container">
+      <span class="material-symbols-outlined">
+        location_on
+      </span>
+    </div>
+    <span class="place">{{place}}</span>
+  </li>
+</ul>

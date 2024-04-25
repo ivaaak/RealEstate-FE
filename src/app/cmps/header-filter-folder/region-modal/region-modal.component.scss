@@ -1,0 +1,36 @@
+@import '../../../../assets/styles/setup/variables';
+@import '../../../../assets/styles/setup/mixins';
+
+.region-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 14px;
+  color: $header-text-color;
+  cursor: default;
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .img-container {
+    display: flex;
+    gap: 12px;
+    .name {
+      margin-top: 4px;
+      font-weight: 300;
+    }
+    img {
+      border-radius: 8px;
+      cursor: pointer;
+      width: 122px;
+      height: 122px;
+    }
+  }
+
+  @include for-mobile-layout {
+    .img-container img {
+      width: 90px;
+      height: 90px;
+    }
+   }
+}
