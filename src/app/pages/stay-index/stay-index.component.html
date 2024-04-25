@@ -1,0 +1,24 @@
+<section class="stay-index">
+  <app-header [isShowFilter]="true"></app-header>
+  <stay-filter></stay-filter>
+  <main *ngIf="!this.loader.getLoading() || isLoadStay" class="main-layout">
+    <div #elFooter (window:scroll)="onPageScroll()">
+      <stay-list *ngIf="!isShowMap" [stays]="estates"></stay-list>
+      <stays-map *ngIf="isShowMap" [stays]="stays$ | async"></stays-map>
+      <skeleton-loader *ngIf="this.loader.getLoading() && isLoadStay"></skeleton-loader>
+    </div>
+    <app-footer *ngIf="!isShowMap" class="full"></app-footer>
+  </main>
+
+  <a *ngIf="isShowScroller" (click)="onPageUp()" class="scroller-up"><span
+      class="material-symbols-outlined">expand_less</span></a>
+  <div *ngIf="IsShowMapBtn" class="toggle-map" (click)="isShowMap = !isShowMap">
+    <span>Show {{isShowMap ? 'list' : 'map'}}   </span>
+    <fa-icon *ngIf="isShowMap" [icon]="listIcon"></fa-icon>
+    <fa-icon *ngIf="!isShowMap" [icon]="mapIcon"></fa-icon>
+  </div>
+  <skeleton-loader *ngIf="this.loader.getLoading()"></skeleton-loader>
+  <a *ngIf="isShowClearBtn" (click)="onClearFilter()" loading="eager" class="clear-filter">
+    <img src="https://res.cloudinary.com/du63kkxhl/image/upload/v1681631046/stay/clear-filter_cbxntm.png" alt="">
+  </a>
+</section>

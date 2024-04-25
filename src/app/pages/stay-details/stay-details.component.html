@@ -1,0 +1,101 @@
+<section [ngClass]="isReserveClick ? 'reserve-click ' : ''" class="stay-details">
+  <app-header [isShowFilter]="false"></app-header>
+  <div class="main-layout">
+    <header id="photos">
+      <div class="header-info">
+        <h1>{{stay.name}}</h1>
+        <div class="flex align-center">
+          <div class="rate">
+            <fa-icon class="star" [icon]="starIcon"></fa-icon>
+            <span>{{getRateAvg()}}</span>
+          </div>
+          <fa-icon class="point" [icon]="point"></fa-icon>
+          <a href="#reviews" class="reviews">{{stay.reviews.length}} {{'stay.details.reviews' | translate}}</a>
+          <fa-icon class="point" [icon]="point"></fa-icon>
+          <div class="loc">
+            <a href="#location">{{stay.loc.address}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="share-save">
+        <span class="share" (click)="onClickShare()">
+          <fa-icon [icon]="shareIcon"></fa-icon>
+          <span>{{'stay.details.share' | translate}}</span>
+        </span>
+        <span class="save" (click)="onClickLike($event)">
+          <fa-icon [ngClass]="isLikeByUser ? 'active like' : 'like'" [icon]="heartIcon"></fa-icon>
+          <span>{{'stay.details.save' | translate}}</span>
+        </span>
+      </div>
+    </header>
+    <div class="img-container">
+      <img loading="lazy" *ngFor="let imgUrl of stay.imgUrls" class="img" [src]="imgUrl" alt="">
+    </div>
+    <img-carousel [stay]="stay" [isLikeByUser]="false"></img-carousel>
+    <div *ngIf="isShowHeader" class="secondary-header full">
+      <div class="main-layout">
+        <div class="header-content">
+          <nav>
+            <a (click)="scrollTo('photos')">{{'stay.details.photos' | translate}}</a>
+            <a (click)="scrollTo('amenities')">{{'stay.details.amenities' | translate}}</a>
+            <a (click)="scrollTo('reviews')">{{'stay.details.reviews' | translate}}</a>
+            <a (click)="scrollTo('location')">{{'stay.details.location' | translate}}</a>
+          </nav>
+          <div *ngIf="isShowHeaderOrder" class="header-order">
+            <div class="order-info">
+              <h5>{{stay.price |currency}} night</h5>
+              <div class="order-rate">
+                <fa-icon [icon]="starIcon" class="star"></fa-icon>
+                <span>{{getRateAvg()}}</span>
+                <fa-icon class="point" [icon]="point"></fa-icon>
+                <span href="" class="reviews">{{stay.reviews.length}} {{'stay.details.reviews' | translate}}</span>
+              </div>
+            </div>
+            <button (click)="addOrder()" class="main-btn">{{'stay.order.reserve' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div #element class="stay-order-info">
+      <div class="stay-information">
+        <div class="subtitle">
+          <div class="subtitle-content">
+            <h2>{{stay.roomType}} hosted by {{stay.host.fullname}}</h2>
+            <div>
+              <span>{{stay.capacity}} {{'stay.header.guests' | translate}}</span>
+              <fa-icon class="point" [icon]="point"></fa-icon>
+              <span>{{stay.bathrooms}} {{'stay.details.bathroom' | translate}}</span>
+              <fa-icon class="point" [icon]="point"></fa-icon>
+              <span>{{stay.bedrooms}} {{'stay.details.bedrooms' | translate}}</span>
+            </div>
+          </div>
+          <img [src]="stay.host.pictureUrl" alt="">
+        </div>
+        <special-perks [stay]="stay"></special-perks>
+        <div class="air-cover">
+          <h2><span>air</span>cover</h2>
+          <div>{{'stay.details.aircover' | translate}}</div>
+        </div>
+        <div class="des">
+          {{stay.summary}}
+        </div>
+        <amenities-list id="amenities" [stay]="stay"></amenities-list>
+      </div>
+      <stay-order (addOrder)="addOrder()" [order]="order" [stay]="stay"></stay-order>
+    </div>
+    <review-list id="reviews" [stay]="stay"></review-list>
+    <add-review [stay]="stay"></add-review>
+    <h2 class="where-you-be">{{'stay.details.where-you-be' | translate}}</h2>
+    <div class="google-map" id="location">
+      <map [stay]="stay"></map>
+      <div class="map-info">
+        <h4 class="address">{{stay.loc.address}}</h4>
+        <p class="stay-summary">{{stay.summary}}</p>
+      </div>
+    </div>
+    <host-info [stay]="stay"></host-info>
+  </div>
+  <app-footer></app-footer>
+</section>
+<purchase-indication *ngIf="isReserveClick" (setIsReserveClick)="setIsReserveClick($event)"
+  [stay]="stay"></purchase-indication>
