@@ -1,0 +1,34 @@
+<section *ngIf="userStays?.length" class="user-stays">
+      <div class="stays">
+            <div class="titles">
+                  <h2 class="name-title big">Name</h2>
+                  <h2>Action</h2>
+                  <h2 class="stay-capacity">Capacity</h2>
+                  <h2>Price</h2>
+                  <h2 class="big">Location</h2>
+                  <h2 class="stay-rate">Rate</h2>
+            </div>
+            <div *ngFor="let stay of userStays" class="stays-content">
+                  <div class="stay-name big">
+                        <img [src]="stay.imgUrls[0]" alt="stay-image">
+                        <span>{{stay.name}}</span>
+                  </div>
+                  <button class="update-btn" [routerLink]="['/user/edit/' , stay._id]">Update</button>
+                  <span class="stay-capacity">{{stay.capacity}}</span>
+                  <span>{{stay.price | currency }}</span>
+                  <span class="big">{{stay.loc.address}}</span>
+                  <div class="stay-rate">
+                        <span>{{getRateAvg(stay)}}</span>
+                        <fa-icon class="star" [icon]="faStar"></fa-icon>
+                  </div>
+            </div>
+      </div>
+</section>
+
+<app-loader *ngIf="this.loader.getLoading()"></app-loader>
+
+<div *ngIf="!this.loader.getLoading() && !userStays?.length" class="empty-stay">
+      <h2>No stays yet</h2>
+      <p>Add your own stay in <a href="#">add stay</a></p>
+      <img src="https://res.cloudinary.com/du63kkxhl/image/upload/v1681630508/user-stay/stays_jzybi3.png" alt="">
+</div>

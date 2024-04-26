@@ -1,0 +1,102 @@
+<section *ngIf="ordersToShow.length" class="user-trips">
+    <div class="user-header">
+        <h2 typingAnimation *ngIf="!isSearchActive">Hi {{user.fullname}}, you have {{orders.length}} orders</h2>
+        <div *ngIf="isSearchActive" class="search-input">
+            <input type="text" name="term" [(ngModel)]="orderFilter.term" (ngModelChange)="onSetFilter()" autofocus
+                autocomplete="off" placeholder="Search an order here..">
+            <span class="icon material-symbols-outlined" (click)="onClearSearch()">close</span>
+        </div>
+        <div class="tools">
+            <div (click)="isSearchActive = !isSearchActive">
+                <span title="Search" class="material-symbols-outlined">search</span>
+            </div>
+            <div (click)="onDownloadCSV()">
+                <span title="Download CSV" class="material-symbols-outlined">cloud_download</span>
+            </div>
+            <div (click)="onPrint()">
+                <span title="Print" class="material-symbols-outlined">print</span>
+            </div>
+            <div (click)="isShowFilterModal = !isShowFilterModal">
+                <span title="Filter Table" class="material-symbols-outlined">filter_alt</span>
+            </div>
+        </div>
+    </div>
+
+    <order-filter-modal (setOrdersToShow)="setOrdersToShow($event)" [ordersToShow]="ordersToShow" [filter]="orderFilter"
+        (toggleFilterModal)="toggleFilterModal()" [orders]="orders" *ngIf="isShowFilterModal"></order-filter-modal>
+
+    <div class="trips-details">
+        <div>
+            <span>{{getOrderStatusAmount('approve')}}/{{orders.length}}</span>
+            <fa-icon class="icon-approved" [icon]="faCircle"></fa-icon>
+            <span>(Approved)</span>
+        </div>
+        <div>
+            <span>{{getOrderStatusAmount('pending')}}/{{orders.length}}</span>
+            <fa-icon class="icon-pending" [icon]="faCircle"></fa-icon>
+            <span>(Pending)</span>
+        </div>
+        <div>
+            <span>{{getOrderStatusAmount('decline')}}/{{orders.length}}</span>
+            <fa-icon class="icon-declined" [icon]="faCircle"></fa-icon>
+            <span>(Declined)</span>
+        </div>
+    </div>
+
+    <div class="trips">
+        <div class="titles">
+            <h4 class="client-name">Client name</h4>
+            <h4>Stay name</h4>
+            <h4>Check in</h4>
+            <h4>Check out</h4>
+            <h4>Total</h4>
+            <h4 class="order-status">Order status</h4>
+            <h4>Status</h4>
+            <h4>Actions</h4>
+        </div>
+        <div *ngFor="let order of ordersToShow" class="trips-content">
+            <span class="client-name">{{order.buyer.fullname}}</span>
+            <span>{{order.stay.name}}</span>
+            <span>{{order.startDate | date}}</span>
+            <span>{{order.endDate | date}}</span>
+            <span>{{order.totalPrice | currency}}</span>
+            <span class="order-status">{{order.status}}</span>
+            <span>
+                <img src="assets/img/user/{{order.status}}.png" alt="">
+            </span>
+            <span *ngIf="order.status === 'pending'" class="actions-btns">
+                <button class="approve mobile" (click)="onChangeStatus('approve', order)">
+                    <span class="material-symbols-outlined">done</span>
+                </button>
+                <button class="decline mobile" (click)="onChangeStatus('decline', order)">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </span>
+            <span ngClass="status {{order.status}}" *ngIf="order.status !== 'pending'">{{order.status}}</span>
+        </div>
+        <div class="paging">
+            <div>
+                <label for="rows">Rows per page:</label>
+                <select name="rows" id="rows">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                </select>
+            </div>
+            <div>
+                <span>1-1 of 1</span>
+            </div>
+            <div>
+                <span class="material-symbols-outlined">chevron_left</span>
+                <span class="material-symbols-outlined">chevron_right</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-loader *ngIf="this.loader.getLoading()"></app-loader>
+
+<div *ngIf="!this.loader.getLoading() && !ordersToShow?.length" class="empty-orders">
+    <h2>No orders yet</h2>
+    <img src="https://res.cloudinary.com/du63kkxhl/image/upload/v1681630492/user-stay/order_milrlk.png" alt="orders">
+</div>

@@ -1,0 +1,113 @@
+@import '../../../assets/styles/setup/variables';
+@import '../../../assets/styles/setup/mixins';
+
+.stays {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0;
+      min-height: 40vh;
+      color: $header-text-color;
+      margin-bottom: 72px;
+      padding: 4px;
+
+      h2 {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 16px;
+      }
+
+      .titles,
+      .stays-content {
+            display: flex;
+            border-bottom: 1px solid #dad4d4bc;
+            padding: 16px 0;
+            align-items: center;
+            justify-content: space-between;
+
+            >* {
+                  @include center-flex();
+                  text-align: center;
+                  width: 110px;
+                  gap: 8px;
+
+                  &.big {
+                        width: 185px;
+                  }
+            }
+
+            .name-title {
+                  justify-content: flex-start;
+            }
+
+            .stay-name {
+                  display: flex;
+                  text-align: start;
+                  justify-content: flex-start;
+                  align-items: flex-start;
+                  flex-direction: column;
+
+                  img {
+                        width: 100px;
+                        height: 100%;
+                        border-radius: 8px;
+                        object-fit: cover;
+                  }
+
+                  span {
+                        font-weight: 700;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        width: 100px;
+                  }
+
+                  @include for-narrow-layout {
+                        flex-direction: row;
+
+                  }
+            }
+
+            .update-btn {
+                  @include main-btn();
+                  padding: 8px 10px;
+                  background: radial-gradient(circle at left, #ff385c 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+            }
+
+            .stay-capacity,
+            .stay-rate {
+                  display: none;
+            }
+
+            @include for-normal-layout {
+
+                  .stay-capacity,
+                  .stay-rate {
+                        display: flex;
+                  }
+            }
+      }
+
+      .stays-content {
+            color: $main-color;
+      }
+}
+
+.empty-stay {
+      margin: 40px 0;
+      color: $header-text-color;
+
+      p {
+            margin-top: 12px;
+
+            a {
+                  color: $secondary-color;
+                  font-weight: 500;
+                  text-decoration: none;
+            }
+      }
+
+      img {
+            margin-top: 24px;
+            border-radius: 12px;
+            width: 700px;
+      }
+}

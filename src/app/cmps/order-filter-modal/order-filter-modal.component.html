@@ -1,0 +1,53 @@
+<section class="order-filter-modal">
+    <div class="header-modal">
+        <span class="title">Filters</span>
+        <span class="reset-btn">Reset</span>
+    </div>
+    <span (click)="onToggleFilterModal()" class="material-symbols-outlined close-btn">close</span>
+    <ul class="filter-list">
+        <li>
+            <label>Stay name</label>
+            <select (change)="onSetFilter($event)" name="stayName" id="name">
+                <option value="">All</option>
+                <option *ngFor="let order of orders" [value]="order.stay.name">{{order.stay.name}}</option>
+            </select>
+        </li>
+        <li>
+            <label>Host name</label>
+            <select (change)="onSetFilter($event)" name="hostName" id="hostName">
+                <option value="">All</option>
+                <option *ngFor="let order of orders" [value]="order.host.fullname">{{order.host.fullname}}</option>
+            </select>
+        </li>
+        <li>
+            <label>Check in</label>
+            <select (change)="onSetFilter($event)" name="startDate" id="check-in">
+                <option value="">All</option>
+                <option *ngFor="let order of orders" [value]="order.startDate">{{order.startDate | date}}</option>
+            </select>
+        </li>
+        <li>
+            <label>Check out</label>
+            <select (change)="onSetFilter($event)" name="endDate" id="check-out">
+                <option value="">All</option>
+                <option *ngFor="let order of orders" [value]="order.startDate">{{order.endDate | date}}</option>
+            </select>
+        </li>
+        <li>
+            <label>Total</label>
+            <select (change)="onSetFilter($event)" name="totalPrice" id="total">
+                <option value="">All</option>
+                <option *ngFor="let order of orders" [value]="order.totalPrice">{{order.totalPrice}}</option>
+            </select>
+        </li>
+        <li>
+            <label>Status</label>
+            <select (change)="onSetFilter($event)" name="status" id="status">
+                <option value="">All</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="decline">Decline</option>
+            </select>
+        </li>
+    </ul>
+</section>
