@@ -1,17 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { Stay } from 'src/app/models/stay.model';
-import { StayService } from 'src/app/services/stay.service';
-
-@Component({
-  selector: 'stay-list',
-  templateUrl: './stay-list.component.html',
-  styleUrls: ['./stay-list.component.scss']
-})
-export class StayListComponent {
-  constructor(private stayService: StayService) { 
-    this.stays = this.mockData as unknown as Stay[];
-  }
-  mockData: Stay[] = [
+[
     {
       "_id": "640f1a201c1c4cc4add67107",
       "name": "Westin Kaanapali KORVN 2BR",
@@ -49,6 +36,7 @@ export class StayListComponent {
         "_id": "63dbac3c5705dc29556eae8d",
         "createAt": "2016-06-12T04:00:00.000Z",
         "fullname": "Patty And Beckett",
+        "location": "Eureka, California, United States",
         "about": "Adventurous couple loves to travel :)",
         "responseTime": "within an hour",
         "pictureUrl": "https://xsgames.co/randomusers/avatar.php?g=male",
@@ -68,7 +56,9 @@ export class StayListComponent {
           "at": "1707301512902",
           "by": {
             "_id": "65c359725472fd7bd59a0bcd",
-            "fullname": "ameni"
+            "fullname": "ameni",
+            "hostMsg": 0,
+            "userMsg": 0
           },
           "txt": "testtt"
         },
@@ -77,7 +67,9 @@ export class StayListComponent {
           "by": {
             "_id": "641865826781c25062258a35",
             "fullname": "demo user",
-            "imgUrl": "https://res.cloudinary.com/dcwibf9o5/image/upload/v1679320445/ewbykz9znjtmoeb1xsip.jpg"
+            "imgUrl": "https://res.cloudinary.com/dcwibf9o5/image/upload/v1679320445/ewbykz9znjtmoeb1xsip.jpg",
+            "userMsg": 0,
+            "hostMsg": 0
           },
           "txt": "test"
         },
@@ -86,7 +78,9 @@ export class StayListComponent {
           "by": {
             "_id": "641865826781c25062258a35",
             "fullname": "demo user",
-            "imgUrl": "https://res.cloudinary.com/dcwibf9o5/image/upload/v1679320445/ewbykz9znjtmoeb1xsip.jpg"
+            "imgUrl": "https://res.cloudinary.com/dcwibf9o5/image/upload/v1679320445/ewbykz9znjtmoeb1xsip.jpg",
+            "userMsg": 0,
+            "hostMsg": 0
           },
           "txt": "hdfhthhgdgdfffgrghthj"
         },
@@ -107,6 +101,69 @@ export class StayListComponent {
             "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/43.jpg"
           },
           "txt": "Peter quickly responded to any questions I had before, and during the trip. Will use again, highly recommend. "
+        },
+        {
+          "at": "2016-09-11T04:00:00.000Z",
+          "by": {
+            "_id": "622f3405e36c59e6164fb703",
+            "fullname": "Kim",
+            "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/61.jpg"
+          },
+          "txt": "We had the perfect location for a room, first floor right in front of the pool. The resort is beautiful, and the staff is so friendly! I enjoyed it so much, we talked about buying a timeshare ourselves."
+        },
+        {
+          "at": "2017-01-07T05:00:00.000Z",
+          "by": {
+            "_id": "622f3404e36c59e6164fb37f",
+            "fullname": "Tracy",
+            "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/63.jpg"
+          },
+          "txt": "Beautiful location. Patty & Peter were super helpful and easy to work with!"
+        },
+        {
+          "at": "2017-04-07T04:00:00.000Z",
+          "by": {
+            "_id": "622f3403e36c59e6164fb105",
+            "fullname": "Duyen",
+            "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/15.jpg"
+          },
+          "txt": "Great spot for the kids and family and close to beach and everything at the resort. We will definitely be back."
+        },
+        {
+          "at": "2017-05-09T04:00:00.000Z",
+          "by": {
+            "_id": "622f3402e36c59e6164fabbe",
+            "fullname": "Binh",
+            "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/22.jpg"
+          },
+          "txt": "The unit and the Westin offer variety of amenities you can possibly ask for. Sofa beds are very comfortable to sleep in. But there is charge for ocean view upgrade. Overall, I highly recommend to book with Patty and Peter. "
+        },
+        {
+          "at": "2018-02-24T05:00:00.000Z",
+          "by": {
+            "_id": "622f3404e36c59e6164fb4af",
+            "fullname": "Samy",
+            "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/56.jpg"
+          },
+          "txt": "We spent a great week at Patty and Peter's place. The place was exactly as shown in the pictures, very comfortable, nice view, with all amenities. The resort is great with several pools, a long beach, many restaurants, and of course a lot of great activities all around."
+        },
+        {
+          "at": "2018-06-16T04:00:00.000Z",
+          "by": {
+            "_id": "622f3405e36c59e6164fb87b",
+            "fullname": "Breanne",
+            "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/8.jpg"
+          },
+          "txt": "This place was perfect for my family. We had plenty of room to spread out and the service could not have been any better"
+        },
+        {
+          "at": "2018-06-29T04:00:00.000Z",
+          "by": {
+            "_id": "622f3405e36c59e6164fb713",
+            "fullname": "Kimberly",
+            "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/61.jpg"
+          },
+          "txt": "We love Westin Kaanapalli"
         }
       ],
       "likedByUsers": [
@@ -133,7 +190,4 @@ export class StayListComponent {
         "value": 4.38
       }
     }
-  ];
-  public stays: Stay[] | null = this.mockData;
-  //@Input() stays!: Stay[] | null;
-}
+  ]

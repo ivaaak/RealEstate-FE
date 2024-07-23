@@ -13,6 +13,7 @@ export class LoaderService {
   }
 
   getLoading(): boolean {
-    return this.loading
+    //return this.loading
+    return false
   }
 }

@@ -25,6 +25,7 @@ export interface Host {
     isSuperhost: boolean,
     policyNumber: number,
     responseTime: string,
+    about: string
 }
 
 export interface Loc {
